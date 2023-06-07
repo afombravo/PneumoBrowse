@@ -49,10 +49,15 @@ git checkout 1.16.11-release  # or version of your choice
 install plugins. run:
 cd plugins
 git clone https://github.com/bhofmei/jbplugin-strandedplot.git StrandedPlotPlugin
+
 git clone https://github.com/bhofmei/jbplugin-hierarchicalcheckbox.git HierarchicalCheckboxPlugin
+
 git clone https://github.com/erasche/jbrowse-dark-theme.git jbrowse-dark-theme (this one is buggy)
+
 git clone https://github.com/TAMU-CPT/SitewideNotices.git SitewideNotices
+
 git clone https://github.com/bhofmei/jbplugin-screenshot.git ScreenShotPlugin
+
 
 ### 6.
 go back to jbrowse folder and re-run:

@@ -73,7 +73,7 @@ chmod +x ./wigToBigWig
 
 ### 9.
 Go to "full_pipeline" folder and tun 'pipeline.sh', replacing the paths were appropriate:
-./pipeline.sh 12 /mnt/d/UNIL/PneumoBrowse/allFromJelleAndDoran/annotation/D39V.fna /mnt/d/UNIL/PneumoBrowse/allFromJelleAndDoran/full_pipeline/S_pneumoniae /mnt/d/UNIL/PneumoBrowse/allFromJelleAndDoran/annotation/GFF_files/D39V_020223_jbrowse.gff3 /mnt/d/UNIL/PneumoBrowse/allFromJelleAndDoran/annotation/GFF_files/D39V_180601_operons.gff3 /mnt/d/UNIL/PneumoBrowse/jbrowse D39V
+./pipeline.sh /PneumoBrowse_compiled/full_pipeline/data/fasta/compiled.fna /PneumoBrowse_compiled/full_pipeline/ /PneumoBrowse_compiled/full_pipeline/data/annotations/excel/compiled_current_jbrowse.gff3 /PneumoBrowse_compiled/full_pipeline/data/annotations/excel/D39V_180601_operons.gff3 /PneumoBrowse_compiled/jbrowse output
 
 ### 10.
 Start localserver by going to the original instalation folder of jbrowse:

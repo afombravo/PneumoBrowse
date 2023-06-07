@@ -19,35 +19,54 @@ OPEN LINUX TERMINAL AND GO AT IT AS FOLLOWS:
 ### 0.
 Get your system ready, and fix any underlying issues:
 sudo apt update
+
 sudo apt upgrade
 
 ### 1.
 Open new cmd line and install nvm (NODE.JS):
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+
 chmod +x ~/.nvm/nvm.sh
+
 source ~/.bashrc
+
 nvm install 14 #version may vary depending on OS. Can use 16, 18.
+
 
 ### 2.
 Open new cmd line and install cpanm for pearl modules:
+
 sudo apt install cpanminus
+
 
 ### 3.
 Install some Pearl modules:
+
 sudo apt-get install expat
+
 sudo apt-get install libexpat1-dev
+
 sudo cpanm XML::Parser
+
 sudo cpanm Bio::DB::SeqFeature::Store
+
 
 ### 4.
 Download correct JBrowse version to the directory that will be your final working directory:
+
 git clone https://github.com/gmod/jbrowse
+
 cd jbrowse
+
 git checkout 1.16.11-release  # or version of your choice
+
 
 ### 5.
 install plugins. run:
+
 cd plugins
+
 git clone https://github.com/bhofmei/jbplugin-strandedplot.git StrandedPlotPlugin
 
 git clone https://github.com/bhofmei/jbplugin-hierarchicalcheckbox.git HierarchicalCheckboxPlugin
@@ -61,36 +80,54 @@ git clone https://github.com/bhofmei/jbplugin-screenshot.git ScreenShotPlugin
 
 ### 6.
 go back to jbrowse folder and re-run:
+
 cd ..
+
 sudo ./setup.sh
+
 
 ### 7.
 Install bedGraphToBigWig in jbrowse bin folder:
+
 cd /bin
+
 rsync -aP rsync://hgdownload.soe.ucsc.edu/genome/admin/exe/linux.x86_64/bedGraphToBigWig ./
+
 chmod +x ./bedGraphToBigWig
+
 
 ### 8.
 Install wigToBigWig in jbrowse bin folder:
+
 cd /bin
+
 rsync -aP rsync://hgdownload.soe.ucsc.edu/genome/admin/exe/linux.x86_64/wigToBigWig ./
+
 chmod +x ./wigToBigWig
+
 
 ### 9.
 Go to "full_pipeline" folder and tun 'pipeline.sh', replacing the paths were appropriate:
+
 ./pipeline.sh /PneumoBrowse_compiled/full_pipeline/data/fasta/compiled.fna /PneumoBrowse_compiled/full_pipeline/ /PneumoBrowse_compiled/full_pipeline/data/annotations/excel/compiled_current_jbrowse.gff3 /PneumoBrowse_compiled/full_pipeline/data/annotations/excel/D39V_180601_operons.gff3 /PneumoBrowse_compiled/jbrowse output
 
 ### 10.
 Start localserver by going to the original instalation folder of jbrowse:
+
 npm run start  # starts a express.js dev server on port 8082, 
+
 
 ### Outro.
 After each update, hyperlinks will be broken. 
+
 To fix this, the trackList.json file from jbrowse direcory must be updated to include new lines.
 Every time a new track with a feautre is added, a new field must be added as well to correcly parse the hyperlink.
 The working model .json file is on full_pipeline and is automatically copied every time an update is performed by running the bash update script, atm.
 
 The adding of new feature HTML must be done as follows:
+
 "fmtDetailValue_[NAME_OF_THE_FIELD]": "function(html) { return unescape(html); }"
+
 E.g:
+
 "fmtDetailValue_Supporting_literature": "function(html) { return unescape(html); }"

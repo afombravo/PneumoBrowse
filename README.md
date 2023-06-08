@@ -133,6 +133,7 @@ E.g:
 "fmtDetailValue_Supporting_literature": "function(html) { return unescape(html); }"
 
 
+
 ## HOW TO UPDATE PNEUMOBROWSE DATA:
 
 By Jelle Slager, 2019 (Readapted by Afonso Bravo, 2023)
@@ -246,7 +247,7 @@ NOTE: some of the downstream tools use commas or semicolons as separators (e.g. 
 NOTE: all 'empty' cells are filled with '.'
 
 
-################ Instructions for updating the annotation of Streptococcus pneumoniae D39V and the accompanying PneumoBrowse session:
+## Instructions for updating the annotation of Streptococcus pneumoniae D39V and the accompanying PneumoBrowse session:
 
 In annotation folder:
 
@@ -270,12 +271,12 @@ In the full_pipeline folder:
 3. Run the pipeline
 4. Update https://veeninglab.com/pneumobrowse-update-history accordingly (good luck).
 
-####### Explanation of pipeline files
-### The pipeline copies 'dojo.js', 'functions.conf', jbrowse.conf', 'notices.json', 'trackList.json' to the JBrowse folder. Therefore, you hardly ever have to change anything within the JBrowse folder. Instead, you can make your changes to your local copies of these files, which will then be copied across.
-### NOTE: sometimes JBrowse has some issues with cache management. If this happens, remove the 'data' folder within the JBrowse folder and rerun the pipeline.
-### In 'dojo.js' (which is a nightmare of a file), I made minor changes. One of these changes the color of arrows from black to white. Just compare to the original file to find location of changes.
-### 'functions.conf' contains the rule that determines the color of forward/reverse/pseudogene features. Note that the 'customGlyph' function is not actually used in PneumoBrowse.
-### 'jbrowse.conf' is quite similar to the original version, but includes lines required for activation of plugins and to set 'sortHierarchical' to 'false'.
-### 'trackList.json' properly encodes the hyperlinks that some fields require. Everytime a hyperlink field is created, it must be manually changed in this file
-### notices.json is the file that contains messages for users, through the SitewideNotices plugin. Update this file to add new messages.
+## Explanation of pipeline files
+The pipeline copies 'dojo.js', 'functions.conf', jbrowse.conf', 'notices.json', 'trackList.json' to the JBrowse folder. Therefore, you hardly ever have to change anything within the JBrowse folder. Instead, you can make your changes to your local copies of these files, which will then be copied across.
+NOTE: sometimes JBrowse has some issues with cache management. If this happens, remove the 'data' folder within the JBrowse folder and rerun the pipeline.
+In 'dojo.js' (which is a nightmare of a file), I made minor changes. One of these changes the color of arrows from black to white. Just compare to the original file to find location of changes.
+'functions.conf' contains the rule that determines the color of forward/reverse/pseudogene features. Note that the 'customGlyph' function is not actually used in PneumoBrowse.
+'jbrowse.conf' is quite similar to the original version, but includes lines required for activation of plugins and to set 'sortHierarchical' to 'false'.
+'trackList.json' properly encodes the hyperlinks that some fields require. Everytime a hyperlink field is created, it must be manually changed in this file
+'notices.json' is the file that contains messages for users, through the SitewideNotices plugin. Update this file to add new messages.
 
